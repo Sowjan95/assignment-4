@@ -16,7 +16,7 @@ AND all amounts are rounded to 2 decimal places (e.g., 1234567.89)
 
 ==================================================*/
 import {Link} from 'react-router-dom';
-// import AccountBalance from './AccountBalance';
+import AccountBalance from './AccountBalance';
 
 const Credits = (props) => {
   
@@ -43,6 +43,7 @@ const Credits = (props) => {
           <button type="submit">Add Credit</button>
         </form>
         <br/>
+        <AccountBalance accountBalance={props.accountBalance}/>
         <Link to="/">Return to Home</Link>
       </div>
     );
