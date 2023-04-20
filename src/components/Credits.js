@@ -15,26 +15,36 @@ AND all amounts are rounded to 2 decimal places (e.g., 1234567.89)
 
 
 ==================================================*/
-import React, {Component} from 'react';
-import AccountBalance from './AccountBalance';
 import {Link} from 'react-router-dom';
+// import AccountBalance from './AccountBalance';
 
-class Credits extends Component {
-  render() {
+const Credits = (props) => {
+  
+    // Create the list of Debit items
+    let creditsView = () => {
+      const { credits } = props;
+      return credits.map((credit) => {  // Extract "id", "amount", "description" and "date" properties of each debits JSON array element
+        let date = credit.date.slice(0,10);
+        return <li key={credit.id}>{credit.amount} {credit.description} {date}</li>
+      });
+    }
+    // Render the list of Debit items and a form to input new Debit item
     return (
       <div>
         <h1>Credits</h1>
-
-        <div>Descripton: {this.props.description}</div>
-        <div>Amount: {this.props.amount}</div>
-        <div>Date: {this.props.date}</div>
+  
+        {creditsView()}
+  
+        <form onSubmit={props.addCredit}>
+          <input type="text" name="description" />
+          <input type="number" name="amount" />
+          <button type="submit">Add Credit</button>
+        </form>
         <br/>
-        <AccountBalance accountBalance={this.props.accountBalance}/>
-        <br/><br/>
         <Link to="/">Return to Home</Link>
       </div>
     );
-  }
+
 }
 
 export default Credits;
