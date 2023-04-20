@@ -16,6 +16,7 @@ AND all amounts are rounded to 2 decimal places (e.g., 1234567.89)
 
 ==================================================*/
 import React, {Component} from 'react';
+import AccountBalance from './AccountBalance';
 import {Link} from 'react-router-dom';
 
 class Credits extends Component {
@@ -28,6 +29,8 @@ class Credits extends Component {
         <div>Amount: {this.props.amount}</div>
         <div>Date: {this.props.date}</div>
         <br/>
+        <AccountBalance accountBalance={this.props.accountBalance}/>
+        <br/><br/>
         <Link to="/">Return to Home</Link>
       </div>
     );
