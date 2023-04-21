@@ -27,7 +27,7 @@ const Debits = (props) => {
         <label>Description: </label>
         <input type="text" name="description" />
         <label>Amount: </label>
-        <input type="number" name="amount" />
+        <input type="number" name="amount" step="0.01"/>
         <button type="submit">Add Debit</button>
       </form>
       <br/>

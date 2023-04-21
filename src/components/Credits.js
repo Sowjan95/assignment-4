@@ -3,17 +3,6 @@ src/components/Credits.js
 
 The Credits component contains information for Credits page view.
 Note: You need to work on this file for the Assignment.
-
-
-Displaying List of Credits:
-
-GIVEN I am on the Credits Page
-WHEN I view the Credits display area
-THEN I shall see all my Credits displayed in a list, including the Credits retrieved from API endpoint
-AND each Credit shall display its description, amount, and date (yyyy-mm-dd)
-AND all amounts are rounded to 2 decimal places (e.g., 1234567.89)
-
-
 ==================================================*/
 import {Link} from 'react-router-dom';
 import AccountBalance from './AccountBalance';
