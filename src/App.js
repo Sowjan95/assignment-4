@@ -35,7 +35,37 @@ class App extends Component {
     this.setState({currentUser: newUser})
   }
 
- 
+  async componentDidMount() {
+    // fetch data from credits API
+    const creditsResponse = await fetch("https://johnnylaicode.github.io/api/credits.json");
+    let creditsData = await creditsResponse.json();
+    creditsData.forEach(credit => {
+      this.state.creditList.push(credit);
+    });
+
+    // fetch data from debits API
+    const debitsResponse = await fetch("https://johnnylaicode.github.io/api/debits.json");
+    const debitsData = await debitsResponse.json();
+    debitsData.forEach(debit => {
+      this.state.debitList.push(debit);
+    });
+    this.updateBalance();
+  }
+
+  updateBalance() {
+    let creditTotal = 0;
+    this.state.creditList.forEach(credit => {
+      creditTotal += credit.amount;
+    });
+
+    let debitTotal = 0;
+    this.state.debitList.forEach(debit => {
+      debitTotal += debit.amount;
+    });
+
+    let newBalance = creditTotal - debitTotal;
+    this.setState({accountBalance: newBalance});
+  }
 
   // Add a new credit to creditList
   addCredit = (e) => {
@@ -52,7 +82,7 @@ class App extends Component {
     console.log(this.state.creditList);
     e.target.reset();
 
-    // this.updateBalance();
+    this.updateBalance();
 
   }
 
