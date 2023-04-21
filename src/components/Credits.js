@@ -20,7 +20,7 @@ import AccountBalance from './AccountBalance';
 
 const Credits = (props) => {
   
-    // Create the list of Debit items
+    // Create the list of Credit items
     let creditsView = () => {
       const { credits } = props;
       return credits.map((credit) => {  // Extract "id", "amount", "description" and "date" properties of each debits JSON array element
@@ -39,7 +39,7 @@ const Credits = (props) => {
           <label>Description: </label>
           <input type="text" name="description" />
           <label>Amount: </label>
-          <input type="number" name="amount" step="0.1"/>
+          <input type="number" name="amount" step="0.01"/>
           <button type="submit">Add Credit</button>
         </form>
         <br/>

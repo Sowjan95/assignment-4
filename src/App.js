@@ -35,22 +35,24 @@ class App extends Component {
     this.setState({currentUser: newUser})
   }
 
+ 
+
   // Add a new credit to creditList
-  addCredit = (event) => {
-    event.preventDefault();
+  addCredit = (e) => {
+    e.preventDefault();
 
     let credit = {};
 
-    credit.id = this.state.creditList.length + 1;
-    credit.description = event.target[0].value;
-    credit.amount = event.target[1].value;
-    credit.date = new Date();
+    credit.id = parseInt(this.state.creditList.length + 1);
+    credit.description = e.target[0].value;
+    credit.amount = parseFloat(e.target[1].value);
+    credit.date = new Date().toISOString();
 
     this.state.creditList.push(credit);
     console.log(this.state.creditList);
-    event.target.reset();
+    e.target.reset();
 
-    // updateBalance
+    // this.updateBalance();
 
   }
 
