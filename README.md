@@ -1,5 +1,4 @@
 # Assignment 4 - Bank of React App
-This repository is the starter code for Assignment 4 - Bank of React.
 
 ### Name: Sowjanya Sritharasarma
 ### GitHub: Sowjan95
