@@ -79,7 +79,6 @@ class App extends Component {
     credit.date = new Date().toISOString();
 
     this.state.creditList.push(credit);
-    console.log(this.state.creditList);
     e.target.reset();
 
     this.updateBalance();
@@ -98,13 +97,11 @@ class App extends Component {
     debit.date = new Date().toISOString();
 
     this.state.creditList.push(debit);
-    console.log(this.state.debitList);
     e.target.reset();
 
     this.updateBalance();
 
   }
-
 
   // Create Routes and React elements to be rendered using React components
   render() {  
